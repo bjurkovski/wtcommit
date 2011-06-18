@@ -53,7 +53,7 @@ if __name__ == "__main__":
 	parser = WTCommitParser()
 	parser.feed(page)
 
-	# Chump the \n in the end of the message
+	# Chop the \n in the end of the message
 	msg = parser.commitMsg
 	if msg[len(msg)-1] == '\n':
 		msg = msg[0:len(msg)-1]
