@@ -4,4 +4,6 @@ A script to use ngerakines' What The Commit (https://github.com/ngerakines/commi
 messages into your own commits. -- Bruno Jurkovski
 
 Usage:
-./wtcommit.py [git/svn]
+./wtcommit.py {git | svn} [-m "Real commit message."]
+
+(Parameters between {} represent mandatory parameters while parameters between [] are optional)
