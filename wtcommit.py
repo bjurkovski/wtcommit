@@ -59,10 +59,17 @@ if __name__ == "__main__":
 		print "Usage:", sys.argv[0], "[git/svn]"
 		exit()
 
+	# Parse parameters given by the user
+	extraMsg = ""
+	for i in range(2, len(sys.argv)):
+		if sys.argv[i] == "-m" and i+1<len(sys.argv):
+			extraMsg = " (" + sys.argv[i+1] + ")"
+			break
+
 	if sys.argv[1] == "svn":
-		print commands.getoutput("svn commit -m '" + msg + "'")
+		print commands.getoutput("svn commit -m '" + msg + extraMsg + "'")
 	elif sys.argv[1] == "git":
-		print commands.getoutput("git commit . " + "-m '" + msg + "'")
+		print commands.getoutput("git commit . " + "-m '" + msg + extraMsg + "'")
 	else:
 		print "First parameter must be either 'git' or 'svn'."
 		exit()
