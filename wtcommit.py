@@ -53,8 +53,12 @@ if __name__ == "__main__":
 	parser = WTCommitParser()
 	parser.feed(page)
 
+	# Chump the \n in the end of the message
 	msg = parser.commitMsg
-	#print sys.argv[0], sys.argv[1]
+	if msg[len(msg)-1] == '\n':
+		msg = msg[0:len(msg)-1]
+
+	# Instructions in case of bad usage
 	if len(sys.argv) < 2:
 		print "Usage:", sys.argv[0], "[git/svn]"
 		exit()
@@ -66,6 +70,7 @@ if __name__ == "__main__":
 			extraMsg = " (" + sys.argv[i+1] + ")"
 			break
 
+	# Make the real commit
 	if sys.argv[1] == "svn":
 		print commands.getoutput("svn commit -m '" + msg + extraMsg + "'")
 	elif sys.argv[1] == "git":
