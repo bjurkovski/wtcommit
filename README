@@ -1,0 +1,7 @@
+README - wtcommit.py
+
+A script to use ngerakines' What The Commit (https://github.com/ngerakines/commitment)
+messages into your own commits. -- Bruno Jurkovski
+
+Usage:
+./wtcommit.py [git/svn]
